@@ -1,24 +1,10 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Ruby on rails form practice https://www.theodinproject.com/lessons/ruby-on-rails-private-events
 
-Things you may want to cover:
+This is part of the Private Events Project in The Odin Project’s Ruby on Rails Curriculum. Find it at https://www.theodinproject.com”
 
-* Ruby version
+Ruby version 3.35
 
-* System dependencies
+Ruby on Rails version 8.0.1
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
