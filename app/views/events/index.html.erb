@@ -1,2 +1,19 @@
 <H1>Welcome to Event Planner!</H1>
 <p>Please enjoy these events in your area~</p>
+<div id ="events">
+    <% @events.each do |event| %>
+        <div id="event">
+            <h3 id="event-title"><%= event.name %><br></h3>
+            <h4 id="host-name">Date: <%= event.date %></h4> 
+            <h4 id="host-name">Hosted by PLACEHOLDER</h4>
+            <% if event.image_url.present?%>
+                <div id="image"> 
+                    <img src='<%= event.image_url %>'  width="400"> 
+                </div>
+                <% end %>
+            <p id="desc">
+                <%= event.desc %><br>
+            </p>
+        </div>
+        <% end %>
+</div>
