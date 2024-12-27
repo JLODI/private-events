@@ -1,5 +1,5 @@
 <H1>User Profile:</H1>
-<p>Here are your created events:</p>
+<H2>Events hosted by <%= @user.email %> </H2>
 
 <div id ="events">
     <% @events.each do |event| %>
@@ -16,4 +16,8 @@
             </p>
         </div>
         <% end %>
+</div>
+
+<div>
+    <%= button_to "Logout", destroy_user_session_path, method: :delete  %>
 </div>
