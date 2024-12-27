@@ -1,0 +1,13 @@
+<div id ="event-show">
+    <h1 id="event-title"><%= @event.name %><br></h3>
+    <h4 id="host-name">Date: <%= @event.date %></h4> 
+    <h4 id="host-name">Hosted by PLACEHOLDER</h4>
+    <% if @event.image_url.present?%>
+        <div id="image"> 
+            <img src='<%= @event.image_url %>'  width="400"> 
+        </div>
+        <% end %>
+    <p id="desc">
+        <%= @event.desc %><br>
+    </p>
+</div>
