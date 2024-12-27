@@ -15,7 +15,7 @@ class EventsController < ApplicationController
         @event = current_user.created_events.build(event_params)
         if @event.save
             flash[:notice] = "Your Event has been posted!"
-            redirect_to index
+            redirect_to events_path
         else
             flash.now[:error] = @event.errors.full_messages.join ('<br/>')
             render :new, status: :unprocessable_entity
