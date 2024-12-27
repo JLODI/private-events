@@ -6,7 +6,7 @@ class EventsController < ApplicationController
         @event = Event.new
     end
     def create
-        @event = current_user.events.new(event_params)
+        @event = current_user.created_events.build(event_params)
         if @event.save
             flash[:notice] = "Your Event has been posted!"
             redirect_to events_index
