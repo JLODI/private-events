@@ -4,7 +4,7 @@
     <% @events.each do |event| %>
         <div id="event">
             <h3 id="event-title"><%= event.name %><br></h3>
-            <h4 id="host-name">Date: <%= event.date %></h4> 
+            <h4 id="date">Date: <%= event.date %></h4> 
             <h4 id="host-name">Hosted by PLACEHOLDER</h4>
             <% if event.image_url.present?%>
                 <div id="image"> 

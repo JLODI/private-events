@@ -1,2 +1,19 @@
 <H1>User Profile:</H1>
-<p>Summary of your user profile</p>
+<p>Here are your created events:</p>
+
+<div id ="events">
+    <% @events.each do |event| %>
+        <div id="event">
+            <h3 id="event-title"><%= event.name %><br></h3>
+            <h4 id="date">Date: <%= event.date %></h4> 
+            <% if event.image_url.present?%>
+                <div id="image"> 
+                    <img src='<%= event.image_url %>'  width="400"> 
+                </div>
+                <% end %>
+            <p id="desc">
+                <%= event.desc %><br>
+            </p>
+        </div>
+        <% end %>
+</div>
