@@ -1,0 +1,17 @@
+<H1>
+    Create a new event!
+</H1>
+
+<%= form_with model: @event do |form| %>
+    <%= form.label "Event Name" %><br>
+    <%= form.text_field :name, placeholder: 'Your Event Name Here' %><br>
+    <%= form.label "Date" %><br>
+    <%= form.date_select :date %><br>
+    <%= form.label "Location" %><br>
+    <%= form.text_field :location, placeholder: 'Your Event Location Here' %><br>
+    <%= form.label "Image URL" %>
+    <%= form.text_field :image_url %><br>
+    <%= form.label "Event Description:" %><br>
+    <%= form.textarea :desc, size: "70x5", placeholder: 'Write about your event here' %><br>
+    <%= form.submit value:"Post Your Event" %>
+<% end %>
