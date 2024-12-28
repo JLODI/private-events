@@ -12,5 +12,23 @@
     </p>
 </div>
 <div>
-<h2 id="event-attendees"><%= @event.attendees%><br></h3>
+<h2 id="event-attendees">Who's going:</h2>
+    <% @event.attendees.each do |attendee| %>
+        <ul>
+            <li><%= attendee.email %></li>
+        </ul>
+    <% end %>
 </div>
+
+
+<% unless @event.attendees.include?(current_user) %>
+        <%= form_with model: @event_ticket do |form| %>
+            <%= form.hidden_field :attendee_id %>
+            <%= form.hidden_field :attended_event_id %>
+            <%= form.submit value: "Attend the event!" %>
+        <% end %>
+<% else %>
+    <div>
+        You are attending the event.
+    </div>
+<% end %>
