@@ -4,7 +4,7 @@
 <div id ="events">
     <% @created_events.each do |event| %>
         <div id="event">
-            <h3 id="event-title"><%= event.name %><br></h3>
+            <h3 id="event-title"><%= link_to event.name, event %><br></h3>
             <h4 id="date">Date: <%= event.date %></h4> 
             <% if event.image_url.present?%>
                 <div id="image"> 
@@ -23,7 +23,7 @@
 <div id ="events">
     <% @attended_events.each do |event| %>
         <div id="event">
-            <h3 id="event-title"><%= event.name %><br></h3>
+            <h3 id="event-title"><%= link_to event.name, event %><br></h3>
             <h4 id="date">Date: <%= event.date %></h4> 
             <% if event.image_url.present?%>
                 <div id="image"> 
