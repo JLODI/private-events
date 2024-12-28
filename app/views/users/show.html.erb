@@ -2,7 +2,26 @@
 <H2>Events hosted by <%= @user.email %> </H2>
 
 <div id ="events">
-    <% @events.each do |event| %>
+    <% @created_events.each do |event| %>
+        <div id="event">
+            <h3 id="event-title"><%= event.name %><br></h3>
+            <h4 id="date">Date: <%= event.date %></h4> 
+            <% if event.image_url.present?%>
+                <div id="image"> 
+                    <img src='<%= event.image_url %>'  width="400"> 
+                </div>
+                <% end %>
+            <p id="desc">
+                <%= event.desc %><br>
+            </p>
+        </div>
+        <% end %>
+</div>
+
+<H2>Events you are attending:</H2>
+
+<div id ="events">
+    <% @attended_events.each do |event| %>
         <div id="event">
             <h3 id="event-title"><%= event.name %><br></h3>
             <h4 id="date">Date: <%= event.date %></h4> 
