@@ -1,0 +1,11 @@
+<div align="center">
+    <b>Main Menu:</b>
+    <%= link_to "Home", events_path %> | 
+    <% if user_signed_in? %> 
+        <%= link_to "My Events", user_path(current_user.id) %> |
+        <%= link_to "Logout", destroy_user_session_path, method: :delete  %>
+    <% else %>
+        <%= link_to "Log In", root_path %>
+    <% end %>
+
+</div>
