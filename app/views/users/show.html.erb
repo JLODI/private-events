@@ -19,9 +19,10 @@
 </div>
 
 <H2>Events you are attending:</H2>
+<H3>Future Events:</H3>
 
 <div id ="events">
-    <% @attended_events.each do |event| %>
+    <% @future_events.each do |event| %>
         <div id="event">
             <h3 id="event-title"><%= link_to event.name, event %><br></h3>
             <h4 id="date">Date: <%= event.date %></h4> 
@@ -36,6 +37,31 @@
         </div>
         <% end %>
 </div>
+
+<H3>Past Events:</H3>
+    <% if @past_events.present? %>
+        <div id ="events">
+            <% @past_events.each do |event| %>
+                <div id="event">
+                    <h3 id="event-title"><%= link_to event.name, event %><br></h3>
+                    <h4 id="date">Date: <%= event.date %></h4> 
+                    <% if event.image_url.present?%>
+                        <div id="image"> 
+                            <img src='<%= event.image_url %>'  width="400"> 
+                        </div>
+                        <% end %>
+                    <p id="desc">
+                        <%= event.desc %><br>
+                    </p>
+                </div> 
+            <% end %>
+        </div>
+    <% else %>
+        <div>
+            <p>You have not yet attended an event.</p>
+        </div>
+    <% end %>
+
 
 <div>
     <%= button_to "Logout", destroy_user_session_path, method: :delete  %>
