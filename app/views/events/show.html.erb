@@ -1,7 +1,15 @@
 <div id ="event-show">
     <h1 id="event-title"><%= @event.name %><br></h3>
     <h4 id="host-name">Date: <%= @event.date %></h4> 
-    <h4 id="host-name">Hosted by PLACEHOLDER</h4>
+    <% if current_user.id == @event.creator_id %>
+        <h4 id="host-name">You are hosting this event</h4>
+        <div>
+            <%= link_to "Edit This Event", edit_event_path(@event.id) %> 
+        </div>
+    <% else %>
+        <h4 id="host-name">Hosted by <%= @event.creator.email %></h4>
+    <% end %>
+
     <% if @event.image_url.present?%>
         <div id="image"> 
             <img src='<%= @event.image_url %>'  width="400"> 

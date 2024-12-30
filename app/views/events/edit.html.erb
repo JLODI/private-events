@@ -1,0 +1,17 @@
+<H1>
+    Edit Your event!
+</H1>
+
+<%= form_with model: @event do |form| %>
+    <%= form.label "Event Name" %><br>
+    <%= form.text_field :name, value: @event.name %><br>
+    <%= form.label "Date" %><br>
+    <%= form.date_select :date, value: @event.date %><br>
+    <%= form.label "Location" %><br>
+    <%= form.text_field :location, value: @event.location %><br>
+    <%= form.label "Image URL" %>
+    <%= form.text_field :image_url, value: @event.image_url %><br>
+    <%= form.label "Event Description:" %><br>
+    <%= form.textarea :desc, size: "70x5", value: @event.desc %><br>
+    <%= form.submit value:"Post Your Event" %>
+<% end %>

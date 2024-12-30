@@ -25,6 +25,25 @@ class EventsController < ApplicationController
         end
     end
 
+    def edit
+        @event = Event.find(params[:id])
+        if @event.creator_id != current_user.id
+            flash[:error] = 'You dont have permission to edit this'
+            redirect_to event_path(@event)
+        end
+    end
+
+    def update
+        @event = Event.find(params[:id])
+            if @event.update(event_params)
+                flash[:notice] = "Your Event has been updated!"
+                redirect_to event_path(params[:id])
+            else
+                flash.now[:error] = @event.errors.full_messages.join ('<br/>')
+                render :edit, status: :unprocessable_entity
+            end
+    end
+
 private
     def event_params
         params.expect(event: [:name, :date, :desc, :image_url, :location])
