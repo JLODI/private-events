@@ -6,6 +6,9 @@
         <div>
             <%= link_to "Edit This Event", edit_event_path(@event.id) %> 
         </div>
+        <div>
+            <%= link_to "Delete This Event", event_path(@event.id), data: {turbo_confirm: 'You are deleting this event. Are you sure?', turbo_method: :delete } %> 
+        </div>
     <% else %>
         <h4 id="host-name">Hosted by <%= @event.creator.email %></h4>
     <% end %>

@@ -43,6 +43,18 @@ class EventsController < ApplicationController
                 render :edit, status: :unprocessable_entity
             end
     end
+    
+    def destroy
+        @event = Event.find(params[:id])  
+        @event.destroy    
+            if @event.destroy
+                flash[:notice] = "Your Event has been deleted"
+                redirect_to user_path(current_user.id)
+            else
+                flash.now[:error] = @event.errors.full_messages.join ('<br/>')
+                render :destroy, status: :unprocessable_entity
+            end
+    end  
 
 private
     def event_params
